@@ -1,9 +1,9 @@
 namespace Zufallsgedicht{
 
 // Arrays für Subjekte, Prädikate und Objekte
-const subjects: string[] = ["Harry", "Hermine", "Ron", "Hagrid", "Snape", "Dumbledore"];                                   // 1. Array
-const predicates: string[] = ["braut", "liebt", "studiert", "hasst", "zaubert", "zerstört"];                               // 2. Array
-const objects: string[] = ["Zaubertränke", "den Grimm", "Lupin", "Hogwarts", "die Karte des Rumtreibers", "Dementoren"];   // 3. Array
+const subjects: string[] = ["Luke", "Han Solo", "Leia", "Yoda", "Der Imperator", "Max Rebo"];                                   // 1. Array
+const predicates: string[] = ["kämpft gegen", "liebt", "benutzt die Macht gegen", "hasst", "erzählt eine Geschichte über", "zerstört"];                               // 2. Array
+const objects: string[] = ["den Todesstern.", "den Milleniumfalken.", "Darth Vader.", "Alderan.", "Banthas.", "die Rebellen."];   // 3. Array
 
 // rückwerts zählende for-Schleife
 for (let i = subjects.length; i >= 1; i--) {  //Laufvariable i, Die Schleife wird solange ausgeführt, wie i größer oder gleich 1 ist

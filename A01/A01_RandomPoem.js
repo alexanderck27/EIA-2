@@ -2,9 +2,9 @@
 var Zufallsgedicht;
 (function (Zufallsgedicht) {
     // Arrays für Subjekte, Prädikate und Objekte
-    const subjects = ["Harry", "Hermine", "Ron", "Hagrid", "Snape", "Dumbledore"]; // 1. Array
-    const predicates = ["braut", "liebt", "studiert", "hasst", "zaubert", "zerstört"]; // 2. Array
-    const objects = ["Zaubertränke", "den Grimm", "Lupin", "Hogwarts", "die Karte des Rumtreibers", "Dementoren"]; // 3. Array
+    const subjects = ["Luke", "Han Solo", "Leia", "Yoda", "Der Imperator", "Max Rebo"]; // 1. Array
+    const predicates = ["kämpft gegen", "liebt", "benutzt die Macht gegen", "hasst", "erzählt eine Geschichte über", "zerstört"]; // 2. Array
+    const objects = ["den Todesstern.", "den Milleniumfalken.", "Darth Vader.", "Alderan.", "Banthas.", "die Rebellen."]; // 3. Array
     // rückwerts zählende for-Schleife
     for (let i = subjects.length; i >= 1; i--) { //Laufvariable i, Die Schleife wird solange ausgeführt, wie i größer oder gleich 1 ist
         const subject = subjects[i - 1]; //das aktuelle Subjekt aus dem Array subjects abgerufen und in der Konstanten subject gespeichert
