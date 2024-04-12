@@ -1,0 +1,48 @@
+html,
+body {
+  height: 100%;
+  margin: 10px;
+}
+
+body {
+  text-align: center;
+}
+
+#Div2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 100px;
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+}
+
+#div0 {
+  background-color: rgb(200, 16, 29);
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#div1 {
+  background-color: rgb(163, 27, 197);
+  height: 500px;
+}
+
+span {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  border: thin solid rgb(31, 8, 8);
+  width: 200px;
+  height: 150px;
+}
+
+button {
+  background-color: rgb(76, 180, 16);
+
+}

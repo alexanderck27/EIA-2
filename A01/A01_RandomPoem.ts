@@ -11,14 +11,14 @@ for (let i = subjects.length; i >= 1; i--) {  //Laufvariable i, Die Schleife wir
     const predicate = predicates[i - 1]; //das aktuelle Prädikat aus dem Array predicates abgerufen und in der Konstanten predicate gespeichert
     const object = objects[i - 1]; //das aktuelle Objekt aus dem Array objects abgerufen und in der Konstanten objects gespeichert
     
-  // Funktion getVerse wird aufgerufen und den zurückgelieferten Wert einer Variable zuweisen
+  // Funktion getVerse wird aufgerufen und dem Wert einer Variable zuweisen
     const verse: string = getVerse_(subjects, predicates, objects); //übergibt der Funktion die Arrays als Argumente
     console.log(verse);                                             // gibt Wert in Konsole aus
 }
 
 // Funktion getVerse wird definiert
 function getVerse_( _subjects: string[], _predicates: string[], _objects: string[]): string {
-    let verse: string = ""; // Eine Variable vom Typ string, die einen Vers aufnehmen soll und initialisiert ist
+    let verse: string = ""; // Eine Variable vom Typ string, die einen Vers aufnehmen soll
 
     // Zufallszahl für Subjekte durch mathrandom
     const randomSubjectIndex: number = Math.floor(Math.random() * _subjects.length);
