@@ -1,0 +1,26 @@
+body {
+    background-color: #EF8354;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+#Infotext {
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #4f5d75;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+    text-align: left;
+    padding: 20px;
+    border-bottom: 1px solid #000000;
+}

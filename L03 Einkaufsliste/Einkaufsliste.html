@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einkaufsliste</title>
+    <link rel="stylesheet" href="Einkaufsliste.css">
+    <script src="Einkaufsliste.js"></script>
+    
+</head>
+
+
+<body>
+  
+<h1>Einkaufsliste</h1>
+
+<p id="Infotext">Füge benötigte Produkte zur Einkaufsliste hinzu oder entferne sie...</p>
+
+
+ <table id="einkaufsliste">
+   <tr>
+     <th>Produktname</th> 
+     <th>Anzahl</th>
+     <th>Kommentar</th>
+     <th>Datum</th>
+     <th>zu Kaufen</th>
+     <th>Erledigt</th>
+     <th>hinzufügen</th>
+  </tr>
+
+
+  <td>
+    <input type="text" name="Produktname" placeholder="Produktname" required id="Produktname" /> 
+     </td>
+
+  <td>
+    <input type="number" name="Anzahl" step="1" min="0" max="20" value="0" id="Anzahl" />
+     </td>
+
+  <td><textarea name="Kommentar" rows="1" placeholder="Kommentar hier einfügen" id="Kommentar">
+     </textarea>
+     </td>
+
+  <td><input type="date" name="Datum" id="Datum" />
+      </td>
+
+  <td><input type="checkbox" name="checkbox1" value="check1" id="check1" />
+     </td>
+      
+  <td><input type="checkbox" name="checkbox2" value="check2" id="check2" />
+     </td>
+
+  <td><input type="button" placeholder="Produkt hinzufügen"/>
+     </td>
+
+  </tr>
+
+ </table>
+
+  
+</body>
+</html>
