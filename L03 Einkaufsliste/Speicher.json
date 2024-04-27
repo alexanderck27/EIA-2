@@ -1,0 +1,29 @@
+[
+    {
+      "Produktname": "Brot",
+      "Anzahl": 2,
+      "Kommentar": "Weizen",
+      "Datum": "2024-04-27", 
+      "zu Kaufen": true,
+      "erledigt": false
+    },
+
+    {
+        "Produktname": "Äpfel",
+        "Anzahl": 8,
+        "Kommentar": "rot",
+        "Datum": "2024-04-17", 
+        "zu Kaufen": true,
+        "erledigt": false
+      },
+
+    {
+        "Produktname": "Hefe",
+        "Anzahl": 3,
+        "Kommentar": "wird dringend benötigt",
+        "Datum": "2022-04-07", 
+        "zu Kaufen": true,
+        "erledigt": false
+      }
+
+]

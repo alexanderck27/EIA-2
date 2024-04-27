@@ -24,3 +24,8 @@ th, td {
     padding: 20px;
     border-bottom: 1px solid #000000;
 }
+
+button {
+    width: 150px;
+    height: 10px
+}
