@@ -29,25 +29,19 @@ var L09_Ententeich;
         drawTree({ x: 900, y: 450 });
         drawTree({ x: 1200, y: 480 });
         drawSun({ x: 860, y: 75 });
-        // Neue Wolke erstellen
-        let wolke = new L09_Ententeich.Wolke(200, 100, "white");
-        // Wolke nach rechts animieren
-        animate(wolke);
+        imgData = L09_Ententeich.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        const clouds = [];
+        clouds.push(new Cloud(new Vector(-200, 8), new Vector(50, 0), 100));
+        clouds.push(new Cloud(new Vector(-600, 5), new Vector(20, 0), 100));
+        clouds.push(new Cloud(new Vector(-950, 10), new Vector(80, 0), 100));
+        clouds.push(new Cloud(new Vector(-900, 12), new Vector(40, 0), 100));
+        animate(clouds);
     }
-    function animate(wolke) {
-        L09_Ententeich.crc2.clearRect(0, 0, L09_Ententeich.crc2.canvas.width, L09_Ententeich.crc2.canvas.height); // Canvas leeren
-        drawBackground();
-        drawSky();
-        drawGrass();
-        drawHorizon(365);
-        drawMountain(100, L09_Ententeich.crc2.canvas.height / 2, 300, 200, 500, L09_Ententeich.crc2.canvas.height / 2, '#999999');
-        drawMountain(400, L09_Ententeich.crc2.canvas.height / 2, 600, 100, 800, L09_Ententeich.crc2.canvas.height / 2, '#888888');
-        drawPond(600, L09_Ententeich.crc2.canvas.height * 0.75, 200, 100);
-        drawDuck(650, L09_Ententeich.crc2.canvas.height * 0.75 - 50);
-        // Wolke bewegen und zeichnen
-        wolke.move();
-        wolke.draw();
-        requestAnimationFrame(() => animate(wolke)); // Animation fortsetzen
+    function animate(clouds) {
+        L09_Ententeich.crc2.putImageData(imgData, 0, 0); // Canvas zurücksetzen
+        clouds.forEach(cloud => cloud.move(1 / 80));
+        clouds.forEach(cloud => cloud.draw());
+        requestAnimationFrame(() => animate(clouds)); // Animation fortsetzen
     }
     function drawBackground() {
         let gradient = L09_Ententeich.crc2.createLinearGradient(0, 0, 0, L09_Ententeich.crc2.canvas.height);
@@ -95,22 +89,21 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fillStyle = 'yellow';
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.beginPath(); //Kopf
-        L09_Ententeich.crc2.arc(centerX + 30, centerY - 10, 20, 0, 2 * Math.PI);
+        L09_Ententeich.crc2.arc(centerX + 25, centerY - 20, 20, 0, 2 * Math.PI);
         L09_Ententeich.crc2.fillStyle = 'yellow';
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.beginPath(); //Auge
-        L09_Ententeich.crc2.arc(centerX + 35, centerY - 20, 3, 0, 2 * Math.PI);
+        L09_Ententeich.crc2.arc(centerX + 35, centerY - 25, 3, 0, 2 * Math.PI);
         L09_Ententeich.crc2.fillStyle = 'black';
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.beginPath(); //Schnabel
-        L09_Ententeich.crc2.moveTo(centerX + 45, centerY - 10);
-        L09_Ententeich.crc2.lineTo(centerX + 60, centerY - 5);
-        L09_Ententeich.crc2.lineTo(centerX + 45, centerY - 5);
+        L09_Ententeich.crc2.moveTo(centerX + 45, centerY - 15);
+        L09_Ententeich.crc2.lineTo(centerX + 60, centerY - 15);
+        L09_Ententeich.crc2.lineTo(centerX + 45, centerY - 25);
         L09_Ententeich.crc2.closePath();
         L09_Ententeich.crc2.fillStyle = 'orange';
         L09_Ententeich.crc2.fill();
     }
-    // Funktion zum Zeichnen einer Wolke
     function drawCloud(centerX, centerY) {
         L09_Ententeich.crc2.fillStyle = 'white';
         L09_Ententeich.crc2.beginPath();
@@ -160,6 +153,43 @@ var L09_Ententeich;
             L09_Ententeich.crc2.moveTo(startX, startY);
             L09_Ententeich.crc2.lineTo(endX, endY);
             L09_Ententeich.crc2.stroke();
+        }
+    }
+    class Vector {
+        x;
+        y;
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        scale(_factor) {
+            this.x *= _factor;
+            this.y *= _factor;
+        }
+        add(_addend) {
+            this.x += _addend.x;
+            this.y += _addend.y;
+        }
+    }
+    class Cloud {
+        position;
+        velocity;
+        size;
+        constructor(position, velocity, size) {
+            this.position = position;
+            this.velocity = velocity;
+            this.size = size;
+        }
+        move(_timeslice) {
+            let offset = new Vector(this.velocity.x, this.velocity.y);
+            offset.scale(_timeslice);
+            this.position.add(offset);
+            if (this.position.x > L09_Ententeich.crc2.canvas.width) {
+                this.position.x = 0;
+            }
+        }
+        draw() {
+            drawCloud(this.position.x, this.position.y);
         }
     }
 })(L09_Ententeich || (L09_Ententeich = {}));
