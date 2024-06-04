@@ -116,10 +116,10 @@ namespace L09_Ententeich {
         crc2.fillStyle = 'yellow';
         crc2.fill();
 
-        crc2.beginPath(); //Auge
-        crc2.arc(centerX + 35, centerY - 25, 3, 0, 2 * Math.PI);
+        crc2.font = 'bold 15px Arial';
         crc2.fillStyle = 'black';
-        crc2.fill();
+        crc2.fillText('x', centerX + 33, centerY - 22);
+
 
         crc2.beginPath(); //Schnabel
         crc2.moveTo(centerX + 45, centerY - 15);

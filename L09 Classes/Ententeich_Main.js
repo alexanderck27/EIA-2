@@ -92,10 +92,9 @@ var L09_Ententeich;
         L09_Ententeich.crc2.arc(centerX + 25, centerY - 20, 20, 0, 2 * Math.PI);
         L09_Ententeich.crc2.fillStyle = 'yellow';
         L09_Ententeich.crc2.fill();
-        L09_Ententeich.crc2.beginPath(); //Auge
-        L09_Ententeich.crc2.arc(centerX + 35, centerY - 25, 3, 0, 2 * Math.PI);
+        L09_Ententeich.crc2.font = 'bold 15px Arial';
         L09_Ententeich.crc2.fillStyle = 'black';
-        L09_Ententeich.crc2.fill();
+        L09_Ententeich.crc2.fillText('x', centerX + 33, centerY - 22);
         L09_Ententeich.crc2.beginPath(); //Schnabel
         L09_Ententeich.crc2.moveTo(centerX + 45, centerY - 15);
         L09_Ententeich.crc2.lineTo(centerX + 60, centerY - 15);
