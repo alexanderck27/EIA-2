@@ -2,11 +2,36 @@ namespace L10_Inheritance {
 
     export class Wolke extends Moveable {
         size: number;
+        private Wind: HTMLAudioElement;
 
         constructor(position: Vector, velocity: Vector, size: number) {
             super(position);
             this.velocity = velocity;
             this.size = size;
+            this.Wind = new Audio('Sounds/wind.mp3');
+            this.addClickListener();
+        }
+
+
+        private addClickListener(): void { 
+            crc2.canvas.addEventListener("click", this.handleClick.bind(this));
+        }
+
+        private handleClick(event: MouseEvent): void {
+            let rect = crc2.canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left; 
+            let y = event.clientY - rect.top; 
+
+            if (this.isClicked(x, y)) { 
+                this.Wind.play();
+            }
+        }
+
+        private isClicked(x: number, y: number): boolean {
+            let dx = x - this.position.x;
+            let dy = y - this.position.y; 
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            return distance <= 30; 
         }
 
         public move(timeslice: number): void {

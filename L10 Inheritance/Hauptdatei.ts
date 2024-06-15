@@ -82,8 +82,9 @@ namespace L10_Inheritance {
         treePositions.forEach(position => Static.drawTree(position));
 
         ducks.forEach(duck => {
-            duck.move(40/800); // Enten bewegen
+            duck.move(); // Enten bewegen
             duck.draw(); // Enten zeichnen
         });
     }
+
 }

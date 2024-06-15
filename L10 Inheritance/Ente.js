@@ -6,6 +6,7 @@ var L10_Inheritance;
         state;
         mirror;
         underWater;
+        Quaken;
         constructor(initialPosition, pondArea, _state, _mirror) {
             super(initialPosition);
             this.velocity = new L10_Inheritance.Vector((Math.random() - 0.6) * 2, (Math.random() - 0.4) * 2);
@@ -13,6 +14,25 @@ var L10_Inheritance;
             this.state = _state;
             this.mirror = _mirror;
             this.underWater = -1;
+            this.Quaken = new Audio('Sounds/enten.mp3');
+            this.addClickListener();
+        }
+        addClickListener() {
+            L10_Inheritance.crc2.canvas.addEventListener("click", this.handleClick.bind(this));
+        }
+        handleClick(event) {
+            let rect = L10_Inheritance.crc2.canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+            if (this.isClicked(x, y)) {
+                this.Quaken.play();
+            }
+        }
+        isClicked(x, y) {
+            let dx = x - this.position.x;
+            let dy = y - this.position.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            return distance <= 30;
         }
         draw() {
             switch (this.state) {

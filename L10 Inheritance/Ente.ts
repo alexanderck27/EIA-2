@@ -5,6 +5,7 @@ namespace L10_Inheritance {
         state: string;
         mirror: boolean;
         underWater: number;
+        private Quaken: HTMLAudioElement;
 
         constructor(initialPosition: Vector, pondArea: { x: number, y: number, width: number, height: number}, _state: string, _mirror: boolean) {
             super(initialPosition);
@@ -13,7 +14,33 @@ namespace L10_Inheritance {
             this.state = _state;
             this.mirror = _mirror;
             this.underWater = -1;
+            this.Quaken = new Audio('Sounds/enten.mp3');
+            this.addClickListener();
         }
+
+
+        private addClickListener(): void { 
+            crc2.canvas.addEventListener("click", this.handleClick.bind(this));
+        }
+
+        private handleClick(event: MouseEvent): void {
+            let rect = crc2.canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left; 
+            let y = event.clientY - rect.top; 
+
+            if (this.isClicked(x, y)) { 
+                this.Quaken.play();
+            }
+        }
+
+        private isClicked(x: number, y: number): boolean {
+            let dx = x - this.position.x;
+            let dy = y - this.position.y; 
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            return distance <= 30; 
+        }
+
+
 
         draw(): void {
             switch (this.state) {

@@ -3,10 +3,30 @@ var L10_Inheritance;
 (function (L10_Inheritance) {
     class Wolke extends L10_Inheritance.Moveable {
         size;
+        Wind;
         constructor(position, velocity, size) {
             super(position);
             this.velocity = velocity;
             this.size = size;
+            this.Wind = new Audio('Sounds/wind.mp3');
+            this.addClickListener();
+        }
+        addClickListener() {
+            L10_Inheritance.crc2.canvas.addEventListener("click", this.handleClick.bind(this));
+        }
+        handleClick(event) {
+            let rect = L10_Inheritance.crc2.canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+            if (this.isClicked(x, y)) {
+                this.Wind.play();
+            }
+        }
+        isClicked(x, y) {
+            let dx = x - this.position.x;
+            let dy = y - this.position.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            return distance <= 30;
         }
         move(timeslice) {
             const offsetX = this.velocity.x * timeslice;
