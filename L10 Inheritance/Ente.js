@@ -46,6 +46,37 @@ var L10_Inheritance;
                     this.drawStanding();
             }
         }
+        draweating() {
+            L10_Inheritance.crc2.beginPath(); // Körper
+            L10_Inheritance.crc2.ellipse(this.position.x, this.position.y, 40, 20, 0, 0, 2 * Math.PI);
+            L10_Inheritance.crc2.fillStyle = 'yellow';
+            L10_Inheritance.crc2.fill();
+            L10_Inheritance.crc2.beginPath(); // Kopf
+            L10_Inheritance.crc2.arc(this.position.x + 35, this.position.y - 10, 20, 0, 2 * Math.PI);
+            L10_Inheritance.crc2.fillStyle = 'yellow';
+            L10_Inheritance.crc2.fill();
+            // Schwarzes Auge
+            L10_Inheritance.crc2.beginPath();
+            L10_Inheritance.crc2.arc(this.position.x + 43, this.position.y - 12, 3, 0, 2 * Math.PI);
+            L10_Inheritance.crc2.fillStyle = 'black';
+            L10_Inheritance.crc2.fill();
+            L10_Inheritance.crc2.beginPath(); // Schnabel oben
+            L10_Inheritance.crc2.moveTo(this.position.x + 55, this.position.y - 5);
+            L10_Inheritance.crc2.lineTo(this.position.x + 70, this.position.y - 5);
+            L10_Inheritance.crc2.lineTo(this.position.x + 55, this.position.y - 15);
+            L10_Inheritance.crc2.closePath();
+            L10_Inheritance.crc2.fillStyle = 'orange';
+            L10_Inheritance.crc2.fill();
+            L10_Inheritance.crc2.beginPath(); // Schnabel unten
+            L10_Inheritance.crc2.moveTo(this.position.x + 55, this.position.y - 7);
+            L10_Inheritance.crc2.lineTo(this.position.x + 67, this.position.y + 7);
+            L10_Inheritance.crc2.lineTo(this.position.x + 47, this.position.y + 7);
+            L10_Inheritance.crc2.closePath();
+            L10_Inheritance.crc2.fillStyle = 'orange';
+            L10_Inheritance.crc2.fill();
+            this.move();
+            this.updatePosition();
+        }
         drawSwimming() {
             L10_Inheritance.crc2.beginPath(); // Körper
             L10_Inheritance.crc2.ellipse(this.position.x, this.position.y, 40, 20, 0, 0, 2 * Math.PI);
@@ -57,7 +88,7 @@ var L10_Inheritance;
             L10_Inheritance.crc2.fill();
             // Schwarzes Auge
             L10_Inheritance.crc2.beginPath();
-            L10_Inheritance.crc2.arc(this.position.x + 33, this.position.y - 22, 3, 0, 2 * Math.PI);
+            L10_Inheritance.crc2.arc(this.position.x + 33, this.position.y - 20, 3, 0, 2 * Math.PI);
             L10_Inheritance.crc2.fillStyle = 'black';
             L10_Inheritance.crc2.fill();
             L10_Inheritance.crc2.beginPath(); // Schnabel

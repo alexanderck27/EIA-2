@@ -55,6 +55,43 @@ namespace L10_Inheritance {
             }
         }
 
+        draweating(): void {
+            crc2.beginPath(); // Körper
+            crc2.ellipse(this.position.x, this.position.y, 40, 20, 0, 0, 2 * Math.PI);
+            crc2.fillStyle = 'yellow';
+            crc2.fill();
+
+            crc2.beginPath(); // Kopf
+            crc2.arc(this.position.x + 35, this.position.y - 10, 20, 0, 2 * Math.PI);
+            crc2.fillStyle = 'yellow';
+            crc2.fill();
+
+             // Schwarzes Auge
+            crc2.beginPath();
+            crc2.arc(this.position.x + 43, this.position.y - 12, 3, 0, 2 * Math.PI);
+            crc2.fillStyle = 'black';
+            crc2.fill();
+
+            crc2.beginPath(); // Schnabel oben
+            crc2.moveTo(this.position.x + 55, this.position.y - 5);
+            crc2.lineTo(this.position.x + 70, this.position.y - 5);
+            crc2.lineTo(this.position.x + 55, this.position.y - 15);
+            crc2.closePath();
+            crc2.fillStyle = 'orange';
+            crc2.fill();
+
+            crc2.beginPath(); // Schnabel unten
+            crc2.moveTo(this.position.x + 55, this.position.y - 7);
+            crc2.lineTo(this.position.x + 67, this.position.y + 7);
+            crc2.lineTo(this.position.x + 47, this.position.y + 7);
+            crc2.closePath();
+            crc2.fillStyle = 'orange';
+            crc2.fill();
+
+            this.move();
+            this.updatePosition();
+        }
+
         drawSwimming(): void {
             crc2.beginPath(); // Körper
             crc2.ellipse(this.position.x, this.position.y, 40, 20, 0, 0, 2 * Math.PI);
@@ -68,7 +105,7 @@ namespace L10_Inheritance {
 
              // Schwarzes Auge
             crc2.beginPath();
-            crc2.arc(this.position.x + 33, this.position.y - 22, 3, 0, 2 * Math.PI);
+            crc2.arc(this.position.x + 33, this.position.y - 20, 3, 0, 2 * Math.PI);
             crc2.fillStyle = 'black';
             crc2.fill();
 
@@ -83,6 +120,7 @@ namespace L10_Inheritance {
             this.move();
             this.updatePosition();
         }
+
 
         drawTail(): void { //tauchend
             crc2.fillStyle = "yellow";
